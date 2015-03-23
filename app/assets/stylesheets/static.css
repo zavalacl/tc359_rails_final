@@ -1,0 +1,14 @@
+li {
+  display: inline;
+}
+
+.nav {
+  border:1px solid #ccc;
+  border-width:1px 0;
+  list-style:none;
+  margin:20;
+  padding:0;
+  text-align:center;
+  font-size: 2em;
+
+}
