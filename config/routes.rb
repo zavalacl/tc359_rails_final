@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :musics
+
   root 'static#home'
 
   get '/about' => 'static#about'
