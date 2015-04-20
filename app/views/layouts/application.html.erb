@@ -15,6 +15,19 @@
     <li><%= link_to 'Music', musics_path %></li>
   </ul>
 
+  <% flash.each do |type, message| %>
+  <div class="<%= type %>">
+    <p><%= message %></p>
+  </div>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <li>Signed in in as <%= current_user.email %></li>
+    <li><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to "Sign In", sign_in_path %></li>
+  <% end %>
+
   <%= yield %>
 
   <p>It looks like it's <strong><%= current_date_and_time %></strong></p>

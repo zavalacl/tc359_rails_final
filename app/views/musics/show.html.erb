@@ -20,5 +20,7 @@
   <%= @music.rating %>
 </p>
 
-<%= link_to 'Edit', edit_music_path(@music) %> |
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_music_path(@music) %> |
+<% end %>
 <%= link_to 'Back', musics_path %>

@@ -23,8 +23,10 @@
         <td><%= music.rating %></td>
         <td><%= music.label %></td>
         <td><%= link_to 'Show', music %></td>
-        <td><%= link_to 'Edit', edit_music_path(music) %></td>
-        <td><%= link_to 'Destroy', music, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_music_path(music) %></td>
+          <td><%= link_to 'Destroy', music, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Music', new_music_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Music', new_music_path %>
+<% end %>
