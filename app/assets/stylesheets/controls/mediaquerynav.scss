@@ -1,0 +1,76 @@
+$blackiscool: #000;
+$nav_background: #4f4f4f;
+$mqwidth: 100%;
+$mqheight: auto;
+$mqblock: block;
+$mqleft: left;
+$mqrelative: relative;
+$mqnone: none;
+
+@media screen and (max-width:1499px) {
+  img{
+    width: $mqwidth;
+  }
+}
+
+@media screen and (max-width: 600px) {
+    nav {
+        height: $mqheight;
+    }
+    nav ul {
+        width: $mqwidth;
+        display: $mqblock;
+        height: $mqheight;
+    }
+    nav li {
+        width: 50%;
+        float: $mqleft;
+        position: $mqrelative;
+    }
+    nav li a {
+        border-bottom: 2px solid $blackiscool;
+        border-right: 2px solid $blackiscool;
+    }
+    nav a {
+        text-align: $mqleft;
+        width: $mqwidth;
+        text-indent: 25px;
+    }
+}
+
+@media only screen and (max-width : 480px) {
+  nav {
+      border-bottom: 0;
+  }
+  nav ul {
+      display: $mqnone;
+      height: $mqheight;
+  }
+  nav a#pull {
+      display: $mqblock;
+      background-color: $nav_background;
+      width: $mqwidth;
+      position: $mqrelative;
+  }
+  nav a#pull:after {
+      content:"";
+      background: url('nav-icon.png') no-repeat;
+      width: 30px;
+      height: 30px;
+      display: inline-block;
+      position: absolute;
+      right: 15px;
+      top: 10px;
+  }
+}
+
+@media only screen and (max-width : 320px) {
+    nav li {
+        display: $mqblock;
+        float: $mqnone;
+        width: $mqwidth;
+    }
+    nav li a {
+        border-bottom: 2px solid $blackiscool;
+    }
+}

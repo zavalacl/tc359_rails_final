@@ -5,35 +5,51 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
 
-  <ul class="nav">
+<nav class="collapsible-fixed-top">
+  <ul class="collapsible">
     <li><%= link_to 'Home', root_path %></li>
     <li><%= link_to 'About', about_path %></li>
     <li><%= link_to 'Cats', cat_pictures_path %></li>
     <li><%= link_to 'Music', musics_path %></li>
   </ul>
+  <a href="#" id="pull">Menu</a>
+</nav>
 
-  <div id="wrap">
-    <div id="sidebar">
-      <% if user_signed_in? %>
-        <li>Signed in in as <%= current_user.email %></li>
-        <li><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "Sign In", sign_in_path %></li>
-      <% end %>
-    </div>
-    <div id="main">
-      <% flash.each do |type, message| %>
-      <div class="<%= type %>">
-        <p><%= message %></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+
+        <% if user_signed_in? %>
+          <li>Signed in as <%= current_user.email %></li>
+          <li><%= link_to "Sign Out", sign_out_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign In", sign_in_path %></li>
+        <% end %>
+
+        <%= yield %>
+
+        <br>
+        <p>Your visiting on:<br>
+        <strong><%= current_date_and_time %></strong></p>
+
       </div>
-      <% end %>
 
-      <%= yield %>
+      <div class="col-md-8">
 
-      <p>It looks like it's <strong><%= current_date_and_time %></strong></p>
+        <% flash.each do |type, message| %>
+        <div class="<%= type %>">
+          <p><%= message %></p>
+        </div>
+        <% end %>
+
+        <%= image_tag "indie.jpg", alt: "Indie Music"%>
+
+      </div>
     </div>
   </div>
 

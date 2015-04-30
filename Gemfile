@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "autoprefixer-rails"
+
 gem 'cat_api', '~> 0.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -14,6 +16,7 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'bootstrap-sass', '~> 3.3.4'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
