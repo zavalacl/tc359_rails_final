@@ -1,39 +1,26 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Track Generator</h1>
+<h2>Current Track</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Track</th>
-      <th>Artist</th>
-      <th>Album</th>
-      <th>Rating</th>
-      <th>Label</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
+  <% @musics.each do |music| %>
 
-  <tbody>
-    <% @musics.each do |music| %>
-      <tr>
-        <td><%= music.track %></td>
-        <td><%= music.artist %></td>
-        <td><%= music.album %></td>
-        <td><%= music.rating %></td>
-        <td><%= music.label %></td>
-        <td><%= link_to 'Show', music %></td>
-        <% if user_signed_in? %>
-          <td><%= link_to 'Edit', edit_music_path(music) %></td>
-          <td><%= link_to 'Destroy', music, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+    <p>Track: <%= music.track %></p>
+    <p>Artist: <%= music.artist %></p>
+    <p>Album: <%= music.album %></p>
+    <p>Rating: <%= music.rating %></p>
+    <p>Label: <%= music.label %></p>
+    <p colspan="5"></th>
+  <% end %><br>
+
+  <% @musics.each do |music| %>
+    <p><%= link_to 'Show', music %></p>
+    <% if user_signed_in? %>
+      <p><%= link_to 'Edit', edit_music_path(music) %></p>
+      <p><%= link_to 'Destroy', music, method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
-  </tbody>
-</table>
-
-<br>
+  <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to 'New Music', new_music_path %>
+  <%= link_to 'Create New Track', new_music_path %>
 <% end %><br>

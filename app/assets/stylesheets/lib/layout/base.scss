@@ -1,11 +1,12 @@
 $background: #fff;
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 
 body {
    color: $background;
    font-size: 13px;
    line-height: 18px;
-   font-family: 'Indie Flower', cursive;
    font-size: 20px;
+   font-family: 'Indie Flower', cursive;
 }
 
 h1 {
@@ -17,8 +18,16 @@ li {
    list-style-type: none;
 }
 
-// where do I find these files!? I want to get rid of it!
-/* line 15, /Users/zavalacl/.rbenv/versions/2.2.0/lib/ruby/gems/2.2.0/gems/bootstrap-sass-3.3.4.1/assets/stylesheets/bootstrap/_tables.scss */
-// th {
-//   text-align: left;
-// }
+th {
+  text-align: center;
+}
+
+.field {
+  color: #000;
+}
+
+.actions {
+  color: #000;
+  border: 2px solid;
+  border-radius: 5px;
+}
